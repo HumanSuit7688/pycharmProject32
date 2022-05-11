@@ -115,7 +115,6 @@ async def screenshot(message: types.Message):
         date_list = [[x, os.path.getctime(x)] for x in dir_list]
         sort_date_list = sorted(date_list, key=lambda x: x[1], reverse=True)
         photo = open(sort_date_list[0][0], 'rb')
-
     await bot.send_photo(chat_id=message.chat.id, photo=photo)
 
 
