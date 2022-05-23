@@ -8,10 +8,10 @@ from fake_useragent import UserAgent
 import requests
 from bs4 import BeautifulSoup
 from config import TOKEN
-import regex
-import os
-import datetime
-import pyautogui
+# import regex
+# import os
+# import datetime
+# import pyautogui
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 bot = Bot(token=TOKEN)
@@ -65,9 +65,9 @@ async def process_callback_button_chr(callback_query: types.CallbackQuery):
 async def process_callback_button_chr(callback_query: types.CallbackQuery):
     await bot.send_message(callback_query.from_user.id, f' 1 Belarusian Ruble = {exchenge_mon("https://www.xe.com/currencyconverter/convert/?Amount=1&From=BYN&To=RUB")}')
 
-@dp.message_handler(commands=['help'])
+@dp.message_handler(commands=['start'])
 async def help(message: types.Message):
-    await message.reply("Всё работает !\n Команд: \n"
+    await message.reply("Всё работает!\n Команды: \n"
                         "/crypta - Курс основных криптовалют\n"
                         "/exch_money - Курс основных валют\n"
                         "/crypto - Курс всех криптовалют(вводишь эту команду и через пробел название криптовалюты на англ. яз. с маленькой буквы.)\nПример: ('/crypto bitcoin') ")
@@ -105,17 +105,17 @@ async def process_callback_button1(callback_query: types.CallbackQuery):
 async def crypta(message: types.Message):
     await message.answer("Криптовалюта? Выбирай из трёх вариантов.", reply_markup=inline_kb_crypta)
 
-@dp.message_handler(commands=['screen'])
-async def screenshot(message: types.Message):
-    dt_now = datetime.datetime.now().strftime("%H.%M %Y-%m-%d")
-    screen = pyautogui.screenshot(f'screenshot {dt_now}.png')
-    path =  r'E:\Python\pycharmProject'
-    dir_list = [os.path.join(path, x) for x in os.listdir(path)]
-    if dir_list:
-        date_list = [[x, os.path.getctime(x)] for x in dir_list]
-        sort_date_list = sorted(date_list, key=lambda x: x[1], reverse=True)
-        photo = open(sort_date_list[0][0], 'rb')
-    await bot.send_photo(chat_id=message.chat.id, photo=photo)
+# @dp.message_handler(commands=['screen'])
+# async def screenshot(message: types.Message):
+#     dt_now = datetime.datetime.now().strftime("%H.%M %Y-%m-%d")
+#     screen = pyautogui.screenshot(f'screenshot {dt_now}.png')
+#     path =  r'E:\Python\pycharmProject'
+#     dir_list = [os.path.join(path, x) for x in os.listdir(path)]
+#     if dir_list:
+#         date_list = [[x, os.path.getctime(x)] for x in dir_list]
+#         sort_date_list = sorted(date_list, key=lambda x: x[1], reverse=True)
+#         photo = open(sort_date_list[0][0], 'rb')
+#     await bot.send_photo(chat_id=message.chat.id, photo=photo)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,1 @@
+worker: python Test TG BOT.py

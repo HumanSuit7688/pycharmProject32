@@ -1,0 +1,7 @@
+aiogram
+requests
+bs4
+datetime
+pycoingecko
+lxml
+fake_useragent
