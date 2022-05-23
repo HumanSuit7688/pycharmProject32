@@ -7,14 +7,14 @@ from aiogram.utils import executor
 from fake_useragent import UserAgent
 import requests
 from bs4 import BeautifulSoup
-from config import TOKEN
+from config import TOKEN1
 # import regex
 # import os
 # import datetime
 # import pyautogui
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
-bot = Bot(token=TOKEN)
+bot = Bot(token=TOKEN1)
 dp = Dispatcher(bot)
 
 inline_btn_usd = InlineKeyboardButton('American Dollar', callback_data='button_usd')

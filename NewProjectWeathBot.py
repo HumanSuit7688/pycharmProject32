@@ -8,10 +8,10 @@ from aiogram.utils import executor
 from fake_useragent import UserAgent
 import requests
 from bs4 import BeautifulSoup
-from config import TOKEN1
+from config import TOKEN2
 import schedule
 import time
-bot = Bot(token=TOKEN1)
+bot = Bot(token=TOKEN2)
 dp = Dispatcher(bot)
 
 #   Создаём инлайн кнопки и инлайн клавиатуру
